@@ -1,2 +1,2 @@
-# HTML-nothings
-Just my mini projects with pure HTML
+# Web-Dev-Nothings
+Just my mini projects with HTML, CSS and JavaScript
