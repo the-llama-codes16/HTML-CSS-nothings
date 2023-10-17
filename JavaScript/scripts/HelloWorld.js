@@ -35,7 +35,7 @@ let typeOfAVar = typeof thisIsABigInt; //typeof is an operator, not a function
 alert(typeOfAVar);
 
 
-// Interaction: alert, prompt, confirm
+// INTERACTION: alert, prompt, confirm
 // Inserts a message with OK and Cancel buttons. If user cancels, null is returned.
 let userAge = prompt("How old are you?"); 
 alert(userAge);
@@ -48,7 +48,7 @@ alert(isBoss);
 let userName = prompt("Como se llama usted?");
 alert(`Su nombre es ${userName}. Bienvenido!`);
 
-// Conversions
+// CONVERSIONS
 let numToString = String(5);
 alert(numToString);
 let stringToNum = Number("16");
@@ -61,9 +61,7 @@ alert(anyToBool);
 let anyToBoolVer2 = Boolean("He's dead Jim!");
 alert(anyToBoolVer2);
 
-
-
-// Basic Operators, Maths
+// BASIC OPERATORS/MATHS
 // The usual + - * / % **
 // + Converts any number to string, if the other operand is a string
 let strAndNumUnited = "Who's counting? " + 1;
@@ -83,14 +81,14 @@ alert(boolButNum);
 let strButCannotBeNum = +"hello";
 alert(strButCannotBeNum);
 
-// Shorthand
+// SHORTHAND
 let a = 1;
 a = a + 1;
 let b = 1;
 b += 1;
 alert(b == a);
 
-// Increment and Decrement can only be used on variables!
+// INCREMENT AND DECREMENT can only be used on variables!
 let incr = 2;
 incr++;
 alert(incr);
@@ -102,10 +100,11 @@ alert(++preIncr);
 let postIncr = 2;
 alert(postIncr++);
 
-// Commas allows evaluation of several expressions, but only the result of the last one is returned
+// COMMAS allows evaluation of several expressions, but only the result of the last one is returned
 let commaSample = (1 + 2, 3 + 4);
 alert(commaSample);
-// Comparisons
+
+// COMPARISONS
 // JavaScript attempts to convert the values to numbers if at least one is not a number
 alert("2" > 1);
 alert(0 == false);
@@ -121,7 +120,7 @@ alert(`Alert === undefined: ${null === undefined}`);
 // When they are evaluated with anything except equality/inequality, they are treated differently:
 // null -> 0, undefined -> NaN
 
-// The ternary operator
+// THE TERNARY OPERATOR
 let age = prompt("How old are you?", 0);
 let ageMessage = (age >= 18) ? "You're old!" : "You're young!";
 alert(ageMessage);
@@ -129,7 +128,6 @@ alert(ageMessage);
 let ageVer2 = prompt("How old are you?", 0);
 let ageMessageVer2 = (ageVer2 < 3) ? "What a baby!" : (ageVer2 < 18) ? "You are young!": (ageVer2 < 100) ? "You're an adult!" : "What an unusual age...";
 alert(ageMessageVer2);
-TEMPORARY COMMENT MARK --> */ 
 
 // TASK: The Name of JavaScript
 // Write an if..else construct which asks the official name of JavaScript and returns an appropriate output
@@ -137,4 +135,90 @@ let userResponse = prompt("What is the official name of JavaScript?");
 let ansResponse = (userResponse == "ECMAScript") ? "Right!" : "You don't know? It's ECMAScript!";
 alert(ansResponse);
 
+// TASK: Show the sign
+// Using if..else, write the code which gets a number via prompt and then shows in alert:
+// 1, if the variable is greater than 0
+// -1, if less than zero
+// 0, if equals zero
+let userNumber = prompt("Enter a number:");
+if (userNumber > 0){
+    alert(1);
+}
+else if(userNumber < 0){
+    alert(-1);
+}
+else if(userNumber == 0) {
+    alert(0);
+}
 
+// TASK: Rewrite this if using the conditional operator '?'
+// let result;
+// if (a + b < 4){
+//   result = 'Below';}
+// else {
+//   result = 'Over';}
+
+let result = (a + b < 4) ? 'Below' : 'Over';
+
+// LOGICAL OPERATORS
+// The OR || finds the first truthy value, immediately returns it without executing the rest
+// If all of the operands are false, the last value is returned
+// The AND && works the same, but for falsy values
+// AND has a higher precendence than OR
+// NOT ! operator can be used to convert a value to a boolean such as
+alert(!!"non-empty string");
+// But you're better off using the function Boolean() instead
+
+// TASK: Check the Login
+// Write the code which asks for a login with prompt
+// If the visitor enters "Admin", then prompt for a password.
+// If the input is an empty line or Esc, show cancelled.
+// If the input is another string, then show "I don't know you"
+let userIdentification;
+let password;
+userIdentification = prompt("Who's there?");
+if (userIdentification == "Admin"){
+    password = prompt("Password?");
+    if (password == "TheMaster"){
+        alert("Welcome!");
+    }
+    else if(password == "" || password == null) {
+        alert("Canceled");
+    }
+    else{
+        alert("Wrong password");
+    }
+}
+else if (userIdentification == "" || userIdentification == null){
+    alert("Canceled");
+}
+else {
+    alert("I don't know you.");
+}
+
+// NULLISH COALESCING OPERATOR ??
+// A value is "defined" if it is neither null nor undefined
+// It has the same precedence value as the OR || operator
+// In a ?? b, it returns a if a is defined. Otherwise, b is returned.
+let user;
+alert(user ?? "Anonymous");
+
+let firstName = null;
+let lastName = null;
+let nickName = "The Philly Flash";
+alert(firstName ?? lastName ?? nickName);
+
+// JavaScript forbids the use of ?? together with && and || unless the precedence is explicitly specified with parentheses.
+TEMPORARY COMMENT MARK --> */ 
+
+// LOOPS: WHILE AND FOR
+// To break out of two loops, add a label for the loop and call it when using break
+
+myLoop: for(let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+        let input = prompt(`Value at coords (${i},${j})`, "");
+        // Exit the entire loop if an empty string or ESC is entered
+        if (!input) break myLoop;
+        alert(`${i}, ${j}`);
+    }
+}
