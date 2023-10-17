@@ -1,7 +1,9 @@
+/* <-- TEMPORARY COMMENT MARK
+
 /* 
 JavaScript Study Sheet
 Reference: https://www.javascript.info
-*/
+
 
 "use strict";
 // The statement above explicitly enables the script to work the modern way.
@@ -60,16 +62,79 @@ let anyToBoolVer2 = Boolean("He's dead Jim!");
 alert(anyToBoolVer2);
 
 
+
 // Basic Operators, Maths
 // The usual + - * / % **
 // + Converts any number to string, if the other operand is a string
 let strAndNumUnited = "Who's counting? " + 1;
 alert(strAndNumUnited);
+
 // BUT take note of the string's position in the expression!
 let strAndNumHybrid = 2 + 2 + "1";
 alert(strAndNumHybrid);
 let anotherStrAndNumHybrid = 2 + "1" + 2;
 alert(anotherStrAndNumHybrid);
-// + also converts a string to a number, it can be a shorthand for Number()
-let strButNo = +"pickles";
-alert(strButNo);
+
+// + also converts a string to a number ONLY IF POSSIBLE, it can be a shorthand for Number()
+let strButNum = +"23";
+alert(strButNum);
+let boolButNum = +false;
+alert(boolButNum);
+let strButCannotBeNum = +"hello";
+alert(strButCannotBeNum);
+
+// Shorthand
+let a = 1;
+a = a + 1;
+let b = 1;
+b += 1;
+alert(b == a);
+
+// Increment and Decrement can only be used on variables!
+let incr = 2;
+incr++;
+alert(incr);
+
+// Prefix increment/decrement returns the value after applying the change
+let preIncr = 2;
+alert(++preIncr);
+// Postfix increment/decrement returns the value before applying the change
+let postIncr = 2;
+alert(postIncr++);
+
+// Commas allows evaluation of several expressions, but only the result of the last one is returned
+let commaSample = (1 + 2, 3 + 4);
+alert(commaSample);
+// Comparisons
+// JavaScript attempts to convert the values to numbers if at least one is not a number
+alert("2" > 1);
+alert(0 == false);
+
+// The strict equality operator checks without type conversion
+alert("2" === 2);
+
+// Null and undefined are sweethearts for ==, but not for ===
+alert(`Alert == undefined: ${null == undefined}`);
+alert(`Alert === undefined: ${null === undefined}`);
+
+// Null and undefined will only equal with each other and nothing else
+// When they are evaluated with anything except equality/inequality, they are treated differently:
+// null -> 0, undefined -> NaN
+
+// The ternary operator
+let age = prompt("How old are you?", 0);
+let ageMessage = (age >= 18) ? "You're old!" : "You're young!";
+alert(ageMessage);
+
+let ageVer2 = prompt("How old are you?", 0);
+let ageMessageVer2 = (ageVer2 < 3) ? "What a baby!" : (ageVer2 < 18) ? "You are young!": (ageVer2 < 100) ? "You're an adult!" : "What an unusual age...";
+alert(ageMessageVer2);
+TEMPORARY COMMENT MARK --> */ 
+
+// TASK: The Name of JavaScript
+// Write an if..else construct which asks the official name of JavaScript and returns an appropriate output
+let userResponse = prompt("What is the official name of JavaScript?");
+let ansResponse = (userResponse == "ECMAScript") ? "Right!" : "You don't know? It's ECMAScript!";
+alert(ansResponse);
+
+
